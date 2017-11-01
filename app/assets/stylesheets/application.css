@@ -13,9 +13,26 @@
  *= require_tree .
  *= require_self
  */
- body {
-   background-color: #292929;
+.border {
+  margin-left: 20px;
+}
+
+#title {
+  padding-top: 5px;
+}
+#home_title {
+  padding-top: 5px;
+}
+
+ p {
+   text-align: center;
  }
+
  nav {
    align-self: flex-end;
+ }
+
+ body {
+   background-color: #292929;
+   color: #D0D0D0;
  }

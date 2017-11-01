@@ -1,1 +1,15 @@
-
+<p id='home_title'>
+  Welcome to DevSiteAlpha
+</p>
+<p>
+  A community for gamers and developers alike, to create games and support
+  each other.
+</p>
+<span class="border float-left">
+  <p id='recruits'>
+    New Recruits
+  </p>
+  <%= @User.each do |u| %>
+  <%= puts u.name %>
+  <% end %>
+</span>
