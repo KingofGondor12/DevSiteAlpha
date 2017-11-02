@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<div class="flex-container">
+  <% @games.each do |game| %>
+      <div id='game_image' class="border rounded">
+        <%= image_tag(game.image_url, :size => '75x75') %>
+      </div>
+      <div id='game_title' class="border">
+        <%= game.title %>
+      </div>
+      <td><%= link_to 'Show', game %></td>
+      <td><%= link_to 'Edit', edit_game_path(game) %></td>
+      <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Game', new_game_path %>

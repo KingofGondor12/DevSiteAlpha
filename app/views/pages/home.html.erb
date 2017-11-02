@@ -10,4 +10,7 @@
     New Recruits
   </p>
   <br/>
+  <% @recent_users.each do |user| %>
+  <%= user.email %>
+  <% end %>
 </span>

@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
-  get '/games', to: 'pages#games'
   get '/help', to: 'pages#help'
-  get '/store', to: 'pages#store'
+  resources :games
   mount Thredded::Engine => '/forum'
 end

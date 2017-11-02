@@ -1,0 +1,23 @@
+<% @list.each do |game| %>
+<div class="border" href='#'>
+  <%= game %>
+</div>
+<% end %>
+
+
+<span id='game_create'class="align-text-bottom">
+<%= form_for @game do |game| %>
+
+  <div id='game_create' class="field">
+    <%= game.label :title %>
+    <%= game.text_field :title %>
+  </div>
+  <div class="field">
+    <%= game.label :description %>
+    <%= game.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= game.submit "Submit" %>
+  </div>
+<% end %>
+</span>
