@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/help', to: 'pages#help'
   resources :games
   mount Thredded::Engine => '/forum'
+  resources :charges
+
 end

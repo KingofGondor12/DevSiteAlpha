@@ -1,8 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @game.title %>
+  <strong><%= @game.title %></strong>
 </p>
 
 <p>
@@ -10,15 +9,27 @@
   <%= @game.description %>
 </p>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @game.image_url %>
-</p>
+<div id="show_image">
+  <%= image_tag(@game.image_url, :size => '500x350')  %>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @game.user %>
-</p>
+<%= form_tag charges_path do %>
+<article>
+  <% if flash[:error].present? %>
+  <div id="error_explanation">
+    <p><%= flash[:error] %></p>
+  </div>
+  <% end %>
+  <label class="amount">
+  <span>$<%= @game.price %></span>
+  </label>
+</article>
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+  data-description="<%= @game.title %>"
+  data-amount="<%= @game.price %>"
+  data-locale="auto"></script>
+<% end %>
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>

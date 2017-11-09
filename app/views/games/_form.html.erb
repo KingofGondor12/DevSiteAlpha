@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field(:price, id: :game_price, in: 1.0..200.0, step: 0.01) %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description, id: :game_description %>
   </div>
@@ -24,11 +29,6 @@
   <div class="field">
     <%= form.label :image_url %>
     <%= form.text_field :image_url, id: :game_image_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :game_user_id %>
   </div>
 
   <div class="actions">

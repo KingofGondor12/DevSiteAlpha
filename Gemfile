@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'stripe'
 gem 'thredded', '~> 0.13.7'
 gem 'bcrypt', platforms: :ruby
 gem 'devise'
