@@ -1,24 +1,8 @@
-# README
+# DevSiteAlpha
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DevSiteAlpha is a web app designed to be a bridge between the developers of games that are still in their early builds. It allows users to purchase the early builds of games and provide feedback for developers.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Upcoming Features
+* Dedicated Forum
+* Store Page Reviews
+* User-User Messaging
