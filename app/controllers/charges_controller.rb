@@ -4,8 +4,25 @@ class ChargesController < ApplicationController
   end
 
   def create
-    StripeChargesServices.new(charges_params, current_user).call
-    redirect_to new_charge_path
+
+    $customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :source  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      :customer    => $customer.id,
+      :amount      => ($game.price * 100).to_i,
+      :description => "#{$game.title} purchased",
+      :currency    => 'aud'
+    )
+
+    rescue Stripe::CardError => e
+      flash[:error] = e.message
+      redirect_to new_charge_path
+
+    TransactionMailer.send_transaction
+
   end
 
   private
