@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update, :destroy], :login_required, :except => [:index, :show], :admin_required, :only => :destroy
+  before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   # GET /topics
   # GET /topics.json
@@ -27,15 +27,8 @@ class TopicsController < ApplicationController
     @topic = Topic.new(:name => params[:topic][:name], :last_poster_id => current_user.id, :last_post_at => Time.now, :forum_id => params[:topic][:forum_id], :user_id => current_user.id)
     if @topic.save
       @topic = Topic.new(:name => params[:topic][:name], :last_poster_id => current_user.id, :last_post_at => Time.now, :forum_id => params[:topic][:forum_id])
-
-      if @post.save
-        flash[:notice] = "Successfully created topic."
-        redirect_to "/forums/#{@topic.forum_id}"
-      else
-        redirect :action => 'new'
-      end
-    else
-      render :action => 'new'
+      flash[:notice] = "Successfully created topic."
+      redirect_to "/forums/#{@topic.forum_id}"
     end
   end
 
@@ -71,6 +64,6 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:name, :last_poster_id, :last_post_at)
+      params.require(:topic).permit(:name, :last_poster_id, :last_post_at, :forum_id)
     end
 end
