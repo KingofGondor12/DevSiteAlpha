@@ -31,4 +31,5 @@ require 'mailgun'
      </p>
      <p>Thank you for your purchase, have a great day!</p>
      '
+   end
 end
